@@ -32,25 +32,29 @@
         </form>
     </div>
 
-    <div class="container-fluid">
-        <table class="table table-hover" ng-show="transactions">
-            <tbody>
-                <tr ng-repeat="transaction in transactions">
-                    <td>
-                        <span class="glyphicon" ng-class="{'glyphicon-log-in': transaction.amount.value > 0,
+    <div class="container-fluid transactions-list">
+        <div class="row transaction-item" ng-repeat="transaction in transactions">
+            <div class="col-md-2">
+                <span class="glyphicon" ng-class="{'glyphicon-log-in': transaction.amount.value > 0,
                         'glyphicon-log-out': transaction.amount.value < 0, 'glyphicon-unchecked': transaction.amount.value == 0}"></span>
-                    </td>
-                    <td><strong>{{transaction.description}}</strong><br>
-                        <span ng-if="transaction.accountParty.iban">
+                <img src="core/assets/images/uber.png" width="40" alt="">
+            </div>
+            <div class="col-md-6">
+                <strong>{{transaction.description}}</strong><br>
+                <span ng-if="transaction.accountParty.iban">
                         {{transaction.accountParty.iban | IBANout}}
-                    </span>
-                    </td>
-                    <td class="text-right">{{transaction.amount | amount}}</td>
-                    <td>{{transaction.bookingDate | date : 'dd.MM.yyyy'}}</td>
-
-                </tr>
-            </tbody>
-
-        </table>
+                </span>
+            </div>
+            <div class="col-md-2">
+                {{transaction.amount | amount}}
+            </div>
+            <div class="col-md-2">
+                {{transaction.bookingDate | date : 'dd.MM.yyyy'}}
+            </div>
+            <div class="col-md-12">
+                <h4>Údaje o Uber jízdě</h4>
+                hello
+            </div>
+        </div>
     </div>
 </div>

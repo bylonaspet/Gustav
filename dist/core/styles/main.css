@@ -6880,3 +6880,7 @@ body {
     color: #e6ebef;
   }
 }
+.history .transactions-list .transaction-item {
+  border-top: 1px solid #dedede;
+  padding: 0.5em;
+}
